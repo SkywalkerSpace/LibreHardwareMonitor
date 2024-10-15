@@ -46,7 +46,7 @@ namespace LibreHardwareMonitor.Hardware.Memory
 
             Ring0.WriteSmbus(SMBAUXCTL, Ring0.ReadSmbus(SMBAUXCTL) & ~(SMBAUXCTL_CRC | SMBAUXCTL_E32B));
 
-            return (res < 0) ? 0x00 : addr;
+            return (byte)((res < 0) ? 0x00 : addr);
         }
 
         private static ushort GetWord(byte addr, byte command)

@@ -2,7 +2,7 @@ name: pull requests
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ 0.8.9 ]
 
 jobs:
   build:
@@ -36,26 +36,26 @@ jobs:
         run: msbuild LibreHardwareMonitor.sln -p:Configuration=Release -m
      
       - name: Publish net452
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: LibreHardwareMonitor-net452
           path: |
             bin/Release/net452
             
       - name: Publish netstandard20
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: LibreHardwareMonitorLib-netstandard20
           path: |
             bin/Release/netstandard2.0
       - name: Publish net50
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: LibreHardwareMonitorLib-net50
           path: |
             bin/Release/net5.0
       - name: Publish nupkg
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: LibreHardwareMonitorLib-nupkg
           path: |
